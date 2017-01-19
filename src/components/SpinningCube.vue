@@ -93,13 +93,7 @@
     animation:
     spinY 5s infinite;
   }
-
-  body{
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(35deg, rgb(168, 201, 190), rgb(237, 241, 238));
-    font-family: 'Open Sans', sans-serif;
-  }
+  
   .center{
     z-index: 1;
     position: absolute;
