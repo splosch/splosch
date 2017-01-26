@@ -1,6 +1,14 @@
 <template>
   <div class="footer">
-    <span meta>author: {{ author }}</span>
+    <span meta="obj">
+      <span meta="prop">name: <em>{{profile.name}}</em></span>,
+      <span meta="prop">job: <em>{{profile.job}}</em></span>,
+      <span meta="prop">profiles: <em>[
+          <a :href="profile.xingURL" class="external">@xing</a>,
+          <a :href="profile.githubURL" class="external">@github</a>
+        ]</em>
+      </span>
+    </span>
   </div>
 </template>
 
@@ -9,7 +17,12 @@
     name: 'app-footer',
     data() {
       return {
-        author: '"Mario Winkler"',
+        profile: {
+          name: "'Mario Winkler'",
+          job: "'Web Developer'",
+          xingURL: 'https://www.xing.com/profile/Mario_Winkler9',
+          githubURL: 'https://github.com/splosch/',
+        },
       };
     },
   };
@@ -20,6 +33,6 @@
   .footer {
     position: absolute;
     bottom: 1vh;
-    left: 1vw;
+    width: 100%;
   }
 </style>

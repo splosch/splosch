@@ -37,15 +37,29 @@
     color: #2c3e50;
   }
 
+  a {
+    color: rgba(0,0,0,0.8);
+  }
+
   [meta]{
     color: rgba(255,255,255,0.6);
     font-family: Consolas, Robot, monospace ;
-    
-    &:before{
-      content: "{ "
+
+    &[meta="obj"]{
+      &:before{
+        content: "{ "
+      }
+      &:after{
+        content: " }"
+      }
     }
-    &:after{
-      content: " }"
+
+    &[meta="prop"]{
+      white-space: nowrap;
+    }
+
+    & em {
+      color: rgba(0,0,0,0.5);
     }
   }
 </style>
