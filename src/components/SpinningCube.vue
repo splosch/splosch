@@ -2,7 +2,13 @@
   <div class="center">
   	<div perspective="center">
   		<div class="cube">
-  			<div class="front"></div>
+  			<div class="front">
+          <span class="cube-title">
+            MAKE<br>
+            YOUR<br>
+            CUBE
+          </span>
+        </div>
   			<div class="back"></div>
   			<div class="top"></div>
   			<div class="bottom"></div>
@@ -42,6 +48,19 @@
     height: $size;
     transform-style: preserve-3d;
 
+    .cube-title {
+      font-size: 8vh;
+      line-height: 9vh;
+      font-weight: bold;
+      display: block;
+      margin-top: 2vh;
+    }
+
+    &:hover .cube-title{
+      color: white;
+      cursor: pointer;
+    }
+
     > * {
       position: absolute;
       width: $size;
@@ -79,21 +98,47 @@
     }
   }
 
-  @keyframes spinY {
+  @keyframes spinYhalf_1 {
     from { transform: rotateY(0); }
+    to { transform: rotateY(180deg); }
+  }
+
+  @keyframes spinYhalf_1_c {
+    from { transform: rotateY(180deg); }
+    to { transform: rotateY(180deg); }
+  }
+
+  @keyframes spinYhalf_2 {
+    from { transform: rotateY(180deg); }
     to { transform: rotateY(360deg); }
   }
 
-  @keyframes spinX {
-    from { transform: rotateX(0); }
-    to { transform: rotateX(360deg); }
+  @keyframes dissolveText {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  @keyframes dissolveText_c {
+    from { opacity: 0; }
+    to { opacity: 0; }
   }
 
   .cube {
-    animation:
-    spinY 5s infinite;
+    &:hover {
+      animation:
+        spinYhalf_1 2s 1,
+        spinYhalf_1_c 2s 2s infinite;
+
+      .cube-title {
+        animation:
+          dissolveText 1s 1 1s,
+          dissolveText_c 1s 2s infinite;
+      }
+    }
   }
-  
+
+
+
   .center{
     z-index: 1;
     position: absolute;
