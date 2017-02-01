@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <spinning-cube></spinning-cube>
+    <arrow-control></arrow-control>
     <app-footer></app-footer>
   </div>
 </template>
 
 <script>
-  import SpinningCube from './components/SpinningCube';
   import AppFooter from './components/Footer';
+  import ArrowControl from './components/ArrowControl';
 
   export default {
     name: 'app',
     components: {
-      SpinningCube,
       AppFooter,
+      ArrowControl,
     },
   };
 </script>

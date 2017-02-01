@@ -1,7 +1,7 @@
 <template>
   <div class="center">
   	<div perspective="center">
-  		<div class="cube">
+  		<div id="cube" :class="face">
   			<div class="front">
           <span class="cube-title">
             MAKE<br>
@@ -23,11 +23,7 @@
 <script>
   export default {
     name: 'spinning-cube',
-    data() {
-      return {
-        msg: 'uhh it`s spinning :D',
-      };
-    },
+    props: ['face'],
   };
 </script>
 
@@ -41,7 +37,7 @@
     perspective-origin: 50% $size/2;
   }
 
-  .cube {
+  #cube {
     display: block;
     position: relative;
     width: $size;
@@ -123,18 +119,27 @@
     to { opacity: 0; }
   }
 
-  .cube {
-    &:hover {
-      animation:
-        spinYhalf_1 2s 1,
-        spinYhalf_1_c 2s 2s infinite;
+  #cube {
+    transition: transform 2s;
 
-      .cube-title {
-        animation:
-          dissolveText 1s 1 1s,
-          dissolveText_c 1s 2s infinite;
-      }
-    }
+    &.front{transform: rotateY(0);}
+    &.left{transform: rotateY(90deg) ;}
+    &.back{transform: rotateY(180deg);}
+    &.right{transform: rotateY(270deg);}
+    &.top{transform: rotateX(-90deg);}
+    &.bottom{transform: rotateX(90deg);}
+
+    // &:hover {
+    //   animation:
+    //     spinYhalf_1 2s 1,
+    //     spinYhalf_1_c 2s 2s infinite;
+    //
+    //   .cube-title {
+    //     animation:
+    //       dissolveText 1s 1 1s,
+    //       dissolveText_c 1s 2s infinite;
+    //   }
+    // }
   }
 
 
