@@ -4,8 +4,8 @@
   		<div id="cube" :class="face">
   			<div class="front">
           <span class="cube-title">
-            MAKE<br>
-            YOUR<br>
+            JUST<br>
+            A<br>
             CUBE
           </span>
         </div>
