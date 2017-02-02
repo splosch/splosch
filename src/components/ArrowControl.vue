@@ -2,9 +2,14 @@
   <div>
     <spinning-cube :face="active_face"></spinning-cube>
 
-    <button v-for="face in faces" v-on:click="active_face = face">
-      {{ face }}
-    </button>
+    <div class="cube_unfolded">
+      <button :class="'side--' + face + (active_face == face ? ' active' : '')"
+              :title="face"
+              v-for="face in faces"
+              v-on:click="active_face = face">
+        {{ face }}
+      </button>
+    </div>
 
     <div class="center">
       <button :class="'arrow--' + direction"
@@ -28,7 +33,7 @@
     data() {
       return {
         active_face: 'front',
-        faces: ['top', 'bottom', 'back', 'front', 'left', 'right'],
+        faces: ['top', 'left', 'front', 'right', 'bottom', 'back'],
         directions: ['left', 'right', 'up', 'down'],
       };
     },
@@ -84,6 +89,32 @@
     &:hover{
       color: white;
       text-shadow: 0 0 1px black;
+    }
+  }
+
+  /* cube_map_unfolded */
+  .cube_unfolded {
+    width: 18.1vw;
+    height: 24vw;
+    position: absolute;
+    right: 3vw;
+    top: 3vw;
+
+    > [class^='side--'] {
+      width: 6vw;
+      height: 6vw;
+      display: inline-block;
+      background-color: rgba(0, 0, 0, 0.05);
+      outline: 1px solid rgba(0, 0, 0, 0.1);
+      font-size: 1.5vw;
+
+      &:hover, &.active{
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    .side--top, .side--bottom, .side--back {
+      margin-left: 6vw; margin-right: 6vw;
     }
   }
 
