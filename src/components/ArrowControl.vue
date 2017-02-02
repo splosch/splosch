@@ -7,7 +7,11 @@
     </button>
 
     <div class="center">
-      <button :class="'arrow--' + direction" :title="direction" v-for="direction in directions" v-on:click="active_direction = direction"></button>
+      <button :class="'arrow--' + direction"
+              :title="direction"
+              v-for="direction in directions"
+              v-on:click="turn(direction)">
+      </button>
     </div>
   </div>
 </template>
@@ -27,6 +31,21 @@
         faces: ['top', 'bottom', 'back', 'front', 'left', 'right'],
         directions: ['left', 'right', 'up', 'down'],
       };
+    },
+    methods: {
+      turn: function turn(direction) {
+        const movMap = {
+          front: { left: 'left', right: 'right', up: 'top', down: 'bottom' },
+          back: { left: 'right', right: 'left', up: 'top', down: 'bottom' },
+          left: { left: 'back', right: 'front', up: 'top', down: 'bottom' },
+          right: { left: 'front', right: 'back', up: 'top', down: 'bottom' },
+          top: { left: 'left', right: 'right', up: 'back', down: 'front' },
+          bottom: { left: 'left', right: 'right', up: 'front', down: 'back' },
+        };
+        if (movMap[this.active_face]) {
+          this.active_face = movMap[this.active_face][direction] || 'front';
+        }
+      },
     },
   };
 </script>
@@ -68,6 +87,9 @@
     }
   }
 
+/* Button Reset Styles
+   -------------------
+   taken from (Takeru Suzuki) -> https://codepen.io/terkel/pen/dvejH */
   [role="button"],
   input[type="submit"],
   input[type="reset"],
@@ -101,4 +123,5 @@
       border: 0;
       padding: 0;
   }
+/* END Button Reset Styles */
 </style>
