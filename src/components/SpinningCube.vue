@@ -141,24 +141,4 @@
     //   }
     // }
   }
-
-
-
-  .center{
-    z-index: 1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%,-50%, 0);
-  }
-
-  .author {
-    color: rgba(0,0,0,0.4);
-    padding-top: 50vh;
-    font-size: 0.8em;
-    &:before{
-      content: "by ";
-    }
-  }
-
 </style>
