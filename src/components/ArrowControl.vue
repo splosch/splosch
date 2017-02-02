@@ -25,6 +25,19 @@
 <script>
   import SpinningCube from './SpinningCube';
 
+  // stupid Me can't do the darn math !!!
+  // movMap defines for each
+  //  a starting face, when applying a direction
+  //  the resulting face
+  const movMap = {
+    front: { left: 'left', right: 'right', up: 'top', down: 'bottom' },
+    back: { left: 'right', right: 'left', up: 'top', down: 'bottom' },
+    left: { left: 'back', right: 'front', up: 'top', down: 'bottom' },
+    right: { left: 'front', right: 'back', up: 'top', down: 'bottom' },
+    top: { left: 'left', right: 'right', up: 'back', down: 'front' },
+    bottom: { left: 'left', right: 'right', up: 'front', down: 'back' },
+  };
+
   export default {
     name: 'arrow-control',
     components: {
@@ -39,14 +52,6 @@
     },
     methods: {
       turn: function turn(direction) {
-        const movMap = {
-          front: { left: 'left', right: 'right', up: 'top', down: 'bottom' },
-          back: { left: 'right', right: 'left', up: 'top', down: 'bottom' },
-          left: { left: 'back', right: 'front', up: 'top', down: 'bottom' },
-          right: { left: 'front', right: 'back', up: 'top', down: 'bottom' },
-          top: { left: 'left', right: 'right', up: 'back', down: 'front' },
-          bottom: { left: 'left', right: 'right', up: 'front', down: 'back' },
-        };
         if (movMap[this.active_face]) {
           this.active_face = movMap[this.active_face][direction] || 'front';
         }
