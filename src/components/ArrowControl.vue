@@ -93,20 +93,22 @@
   }
 
   /* cube_map_unfolded */
+  $map_side: 6vw;
+
   .cube_unfolded {
-    width: 18.1vw;
-    height: 24vw;
+    width: $map_side * 3 + 0.1;
+    height: $map_side * 4;
     position: absolute;
-    right: 3vw;
-    top: 3vw;
+    right: $map_side / 2;
+    top: $map_side / 2;
 
     > [class^='side--'] {
-      width: 6vw;
-      height: 6vw;
+      width: $map_side;
+      height: $map_side;
       display: inline-block;
       background-color: rgba(0, 0, 0, 0.05);
       outline: 1px solid rgba(0, 0, 0, 0.1);
-      font-size: 1.5vw;
+      font-size: $map_side / 3.5;
 
       &:hover, &.active{
         background-color: rgba(255, 255, 255, 0.2);
@@ -114,7 +116,7 @@
     }
 
     .side--top, .side--bottom, .side--back {
-      margin-left: 6vw; margin-right: 6vw;
+      margin-left: $map_side; margin-right: $map_side;
     }
   }
 
