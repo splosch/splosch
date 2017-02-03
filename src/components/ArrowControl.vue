@@ -101,8 +101,8 @@
   $map_side: 6vw;
 
   .cube_unfolded {
-    width: $map_side * 3 + 0.1;
-    height: $map_side * 4;
+    width: $map_side * 3 + 5;
+    height: $map_side * 6;
     position: absolute;
     right: $map_side / 2;
     top: $map_side / 2;
@@ -114,6 +114,7 @@
       background-color: rgba(0, 0, 0, 0.05);
       outline: 1px solid rgba(0, 0, 0, 0.1);
       font-size: $map_side / 3.5;
+      margin: 3px;
 
       &:hover, &.active{
         background-color: rgba(255, 255, 255, 0.2);
