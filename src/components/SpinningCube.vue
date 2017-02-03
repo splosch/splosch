@@ -3,11 +3,7 @@
   	<div perspective="center">
   		<div id="cube" :class="face">
   			<div class="front">
-          <span class="cube-title">
-            JUST<br>
-            A<br>
-            CUBE
-          </span>
+          <cube-side-text></cube-side-text>
         </div>
   			<div class="back"></div>
   			<div class="top"></div>
@@ -21,8 +17,13 @@
 
 
 <script>
+  import CubeSideText from './CubeSideText';
+
   export default {
     name: 'spinning-cube',
+    components: {
+      CubeSideText,
+    },
     props: ['face'],
   };
 </script>
