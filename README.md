@@ -1,6 +1,6 @@
-# foobar-demo
+# 3D CSS Spinning Cube
 
-> Demo project to play around with vue and vue-webpack template
+> Demo project to play around with vue.js and vue-webpack template
 
 ## Build Setup
 
