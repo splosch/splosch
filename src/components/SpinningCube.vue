@@ -10,7 +10,7 @@
   			<div class="bottom"></div>
   			<div class="left"></div>
   			<div class="right"></div>
-  		</cube>
+  		</div>
   	</div>
   </div>
 </template>
