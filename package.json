@@ -12,7 +12,8 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
-    "vue": "^2.5.13"
+    "vue": "^2.5.13",
+    "vue-qrcode-reader": "^0.7.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
