@@ -3,15 +3,18 @@
 import Vue from 'vue';
 import App from './App';
 import Scanner from './Scanner';
+import StackedBarChart from './components/StackedBarChart';
 
 const NotFound = { template: '<p>Page not found :(</p>' };
 const Home = App;
 const QRScanner = Scanner;
+const Overview = StackedBarChart;
 
 const routes = {
   '/': Home,
   '/cube': Home,
   '/scan': QRScanner,
+  '/overview': Overview,
 };
 
 /* eslint-disable no-new */
