@@ -32,7 +32,11 @@
 <style lang="scss" scoped>
   .footer {
     position: absolute;
-    bottom: 1vh;
+    bottom: 0;
+    left: 0;
     width: 100%;
+    height: 1.75em;
+    padding: 0.35em 0 0;
+    box-sizing: border-box;
   }
 </style>

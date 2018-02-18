@@ -51,8 +51,10 @@
   }
 
   #app {
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
+    padding: 5vh 5vw 1.75em 5vw;
+    box-sizing: border-box;
     background: linear-gradient(35deg, rgb(168, 201, 190), rgb(237, 241, 238));
 
     font-family: 'Open Sans', sans-serif;

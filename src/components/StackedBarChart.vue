@@ -1,5 +1,4 @@
 <template>
-  <div class="viewport">
     <div class="stacked-bar-graph">
       <div class="bar" v-for="bar in bars" v-bind:style="{ width: bar.width+ '%' }">
         <span class="bar-title">
@@ -13,7 +12,6 @@
         </span>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -72,12 +70,6 @@
 
 <style lang="scss">
 $chartcolors: #608FA1, #FF7F50, #CD853F, #F4A460, #DEB887, #E6AB6B,  #FFA07A, #E9967A, #FF7F50;
-
-.viewport {
-  width: 90vw;
-  height: 90vh;
-  padding: 5vh 5vw
-}
 
 .stacked-bar-graph:empty::before {
     content: "no data defined";
