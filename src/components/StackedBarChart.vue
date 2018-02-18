@@ -92,8 +92,7 @@ $chartcolors: #608FA1, #FF7F50, #CD853F, #F4A460, #DEB887, #E6AB6B,  #FFA07A, #E
 
   .bar {
     display: block;
-    min-height: 6em;
-    height: 40%;
+    height: 6em;
     float: left;
     box-sizing: border-box;
     font-weight: bold;

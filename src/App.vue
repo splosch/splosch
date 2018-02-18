@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <arrow-control></arrow-control>
+    <!-- derive currentView from current route -->
+    <component :is="currentView"></component>
     <app-footer></app-footer>
   </div>
 </template>
@@ -8,14 +9,38 @@
 <script>
   import AppFooter from './components/Footer';
   import ArrowControl from './components/ArrowControl';
+  import Scanner from './Scanner';
+  import StackedBarChart from './components/StackedBarChart';
+
+  const NotFound = { template: '<p>Page not found :(</p>' };
+  const Home = ArrowControl;
+  const QRScanner = Scanner;
+  const Overview = StackedBarChart;
+
+  const routes = {
+    '/': Home,
+    '/cube': Home,
+    '/scan': QRScanner,
+    '/overview': Overview,
+  };
 
   export default {
     name: 'app',
+    data() {
+      return {
+        currentView: this.matchCurrentRoute(),
+      };
+    },
     components: {
       AppFooter,
-      ArrowControl,
+    },
+    methods: {
+      matchCurrentRoute() {
+        return routes[window.location.pathname] || NotFound;
+      },
     },
   };
+
 </script>
 
 <style lang="scss">
